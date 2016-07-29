@@ -21,6 +21,9 @@ defmodule Splurty.Quote do
   Returns random quote
   """
   def random do
-    from q in Splurty.Quote, order_by: fragment("RANDOM()"), limit: 1
+    Splurty.Quote
+      |> order_by(fragment("RANDOM()"))
+      |> limit(1)
+      |> Splurty.Repo.one
   end
 end
