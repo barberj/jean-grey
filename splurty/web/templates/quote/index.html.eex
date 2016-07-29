@@ -25,4 +25,5 @@
   </tbody>
 </table>
 
+<%= link "Yolo", to: quote_path(@conn, :root) %>
 <%= link "New quote", to: quote_path(@conn, :new) %>

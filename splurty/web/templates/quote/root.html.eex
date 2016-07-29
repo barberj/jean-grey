@@ -1,0 +1,6 @@
+Number of reasons I yolo everyday ... <%= 30 + 12 %>
+
+<br />
+<br />
+
+<%= link "Quotes", to: quote_path(@conn, :index) %>

@@ -3,6 +3,10 @@ defmodule Splurty.QuoteController do
 
   alias Splurty.Quote
 
+  def root(conn, _params) do
+    render(conn, "root.html")
+  end
+
   def index(conn, _params) do
     quotes = Repo.all(Quote)
     render(conn, "index.html", quotes: quotes)
