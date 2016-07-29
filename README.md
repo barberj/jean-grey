@@ -9,3 +9,4 @@ http://phoenix.thefirehoseproject.com/1.html
 > createuser postgres -s --pwprompt  
 > mix ecto.create  
 > mix phoenix.gen.html Quote quotes saying:string author:string
+> mix ecto.migrate  
