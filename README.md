@@ -23,9 +23,10 @@ true
 > alias Splurty.Repo
 > Repo.insert(changeset)
 ```
+New Quote did not show up without a refresh.
+
 
 Alternative formats (without aliasing)
-
 ```
 > changeset = Splurty.Quote.changeset(%Splurty.Quote{}, %{author: "some content", saying: "some content"})
 > Splurty.Repo.insert(changeset)
