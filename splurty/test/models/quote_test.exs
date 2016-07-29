@@ -24,6 +24,7 @@ defmodule Splurty.QuoteTest do
       }
       |> Repo.insert
 
-    assert Quote.random.id == quote.id
+    random = Quote.random |> Repo.all |> hd
+    assert random.id == quote.id
   end
 end
