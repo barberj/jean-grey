@@ -24,6 +24,7 @@ true
 > Repo.insert(changeset)
 ```
 New Quote did not show up without a refresh.
+Discovered that if I change `code_reloader: false` in config/dev.exs and restart that the updates stop instantanteously happening and actually require a restart.
 
 
 Alternative formats (without aliasing)
