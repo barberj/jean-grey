@@ -1,4 +1,4 @@
-Number of reasons I yolo everyday ... <%= 30 + 12 %>
+<%= @quote.saying %> - <%= @quote.author %>
 
 <br />
 <br />

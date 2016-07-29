@@ -2,6 +2,7 @@ defmodule Splurty.QuoteTest do
   use Splurty.ModelCase
 
   alias Splurty.Quote
+  alias Splurty.Repo
 
   @valid_attrs %{author: "some content", saying: "some content"}
   @invalid_attrs %{}
@@ -14,5 +15,15 @@ defmodule Splurty.QuoteTest do
   test "changeset with invalid attributes" do
     changeset = Quote.changeset(%Quote{}, @invalid_attrs)
     refute changeset.valid?
+  end
+
+  test "random returns a quote" do
+    quote = %Quote{
+        author: "Nelson Mandela",
+        saying: "It always seems impossible until its done."
+      }
+      |> Repo.insert
+
+    assert Quote.random == quote
   end
 end

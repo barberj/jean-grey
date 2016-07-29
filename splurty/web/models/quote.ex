@@ -16,4 +16,18 @@ defmodule Splurty.Quote do
     |> cast(params, [:saying, :author])
     |> validate_required([:saying, :author])
   end
+
+  @doc """
+  Returns random quote
+  """
+  def random do
+    {:ok, result} = Ecto.Adapters.SQL.query(
+      Splurty.Repo,
+      "SELECT id, saying, author from quotes ORDER BY RANDOM() LIMIT 1",
+      []
+    )
+    %Postgrex.Result{rows: [row]} = result
+    [id, saying, author] = row
+    %Splurty.Quote{id: id, saying: saying, author: author}
+  end
 end

@@ -4,7 +4,7 @@ defmodule Splurty.QuoteController do
   alias Splurty.Quote
 
   def root(conn, _params) do
-    render(conn, "root.html")
+    render(conn, "root.html", quote: Quote.random)
   end
 
   def index(conn, _params) do
