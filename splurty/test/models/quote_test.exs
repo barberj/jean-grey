@@ -18,12 +18,12 @@ defmodule Splurty.QuoteTest do
   end
 
   test "random returns a quote" do
-    quote = %Quote{
+    {:ok, quote} = %Quote{
         author: "Nelson Mandela",
         saying: "It always seems impossible until its done."
       }
       |> Repo.insert
 
-    assert Quote.random == quote
+    assert Quote.random.id == quote.id
   end
 end

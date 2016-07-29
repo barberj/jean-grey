@@ -29,5 +29,6 @@ defmodule Splurty.Quote do
     %Postgrex.Result{rows: [row]} = result
     [id, saying, author] = row
     %Splurty.Quote{id: id, saying: saying, author: author}
+    #from q in Splurty.Quote, order_by: fragment("RANDOM()"), limit: 1
   end
 end
