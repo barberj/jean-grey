@@ -11,15 +11,26 @@ defmodule Splurty.Api.QuoteControllerTest do
 
   test "lists all entries on index", %{conn: conn} do
     conn = get conn, api_quote_path(conn, :index)
-    assert json_response(conn, 200)["data"] == []
+    assert json_response(conn, 200)["quotes"] == []
+  end
+
+  test "includes meta details on index", %{conn: conn} do
+    conn = get conn, api_quote_path(conn, :index)
+    assert json_response(conn, 200)["meta"] == %{
+      "current_page" => 1,
+      "page_size" => 25,
+      "total_pages" => 0
+    }
   end
 
   test "shows chosen resource", %{conn: conn} do
     quote = Repo.insert! %Quote{}
     conn = get conn, api_quote_path(conn, :show, quote)
-    assert json_response(conn, 200) == %{"id" => quote.id,
+    assert json_response(conn, 200) == %{
+      "id" => quote.id,
       "saying" => quote.saying,
-      "author" => quote.author}
+      "author" => quote.author
+    }
   end
 
   test "renders page not found when id is nonexistent", %{conn: conn} do

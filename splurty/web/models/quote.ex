@@ -13,8 +13,8 @@ defmodule Splurty.Quote do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:saying, :author])
-    |> validate_required([:saying, :author])
+      |> cast(params, [:saying, :author])
+      |> validate_required([:saying, :author])
   end
 
   @doc """

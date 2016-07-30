@@ -2,10 +2,13 @@ defmodule Splurty.Api.QuoteController do
   use Splurty.Web, :controller
 
   alias Splurty.Quote
+  #alias Splurty.Paginator
 
-  def index(conn, _params) do
-    quotes = Repo.all(Quote)
-    render(conn, "index.json", quotes: quotes)
+  def index(conn, quote_params) do
+    paginator = Quote
+      |> Paginator.new(quote_params)
+
+    render(conn, "index.json", paginator: paginator)
   end
 
   def create(conn, %{"quote" => quote_params}) do
