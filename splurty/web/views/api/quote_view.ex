@@ -6,7 +6,7 @@ defmodule Splurty.Api.QuoteView do
   end
 
   def render("show.json", %{quote: quote}) do
-    %{data: render_one(quote, Splurty.Api.QuoteView, "quote.json")}
+    render_one(quote, Splurty.Api.QuoteView, "quote.json")
   end
 
   def render("quote.json", %{quote: quote}) do

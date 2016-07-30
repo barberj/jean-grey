@@ -17,7 +17,7 @@ defmodule Splurty.Api.QuoteControllerTest do
   test "shows chosen resource", %{conn: conn} do
     quote = Repo.insert! %Quote{}
     conn = get conn, api_quote_path(conn, :show, quote)
-    assert json_response(conn, 200)["data"] == %{"id" => quote.id,
+    assert json_response(conn, 200) == %{"id" => quote.id,
       "saying" => quote.saying,
       "author" => quote.author}
   end
@@ -30,7 +30,7 @@ defmodule Splurty.Api.QuoteControllerTest do
 
   test "creates and renders resource when data is valid", %{conn: conn} do
     conn = post conn, api_quote_path(conn, :create), quote: @valid_attrs
-    assert json_response(conn, 201)["data"]["id"]
+    assert json_response(conn, 201)["id"]
     assert Repo.get_by(Quote, @valid_attrs)
   end
 
@@ -42,7 +42,7 @@ defmodule Splurty.Api.QuoteControllerTest do
   test "updates and renders chosen resource when data is valid", %{conn: conn} do
     quote = Repo.insert! %Quote{}
     conn = put conn, api_quote_path(conn, :update, quote), quote: @valid_attrs
-    assert json_response(conn, 200)["data"]["id"]
+    assert json_response(conn, 200)["id"]
     assert Repo.get_by(Quote, @valid_attrs)
   end
 
