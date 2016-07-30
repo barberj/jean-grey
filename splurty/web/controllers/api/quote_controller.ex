@@ -2,7 +2,6 @@ defmodule Splurty.Api.QuoteController do
   use Splurty.Web, :controller
 
   alias Splurty.Quote
-  #alias Splurty.Paginator
 
   def index(conn, quote_params) do
     paginator = Quote
