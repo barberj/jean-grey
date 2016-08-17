@@ -1,0 +1,15 @@
+curl -X POST -is "http://localhost:4000/api/quotes" \
+  -H "Content-Type: application/json" \
+  -d '{"quote":{"saying": "hi", "author": "hi"}}'
+
+
+#HTTP/1.1 201 Created
+#server: Cowboy
+#date: Wed, 17 Aug 2016 22:43:03 GMT
+#content-length: 37
+#content-type: application/json; charset=utf-8
+#cache-control: max-age=0, private, must-revalidate
+#x-request-id: musm40vk997pbps3lal1buhrcg4jdvae
+#location: /quotes/57
+#
+#{"saying":"hi","id":57,"author":"hi"}%
